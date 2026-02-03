@@ -55,7 +55,7 @@ streamlit run ontology_tool/utils/app.py
 *   **Visualize**: 交互式查看知识图谱。
 *   **Export**: 导出 RDF 或 JSONL 数据。
 
-注意：Web 应用默认使用独立的数据库文件 `memory/ontology/tool_graph.jsonl`。
+注意：Web 应用默认使用独立的数据库文件 `memory/ontology/graph.jsonl`。
 
 ### 3. 使用命令行工具
 
