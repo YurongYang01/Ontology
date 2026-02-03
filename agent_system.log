@@ -1,0 +1,73 @@
+2026-02-03 17:17:02,025 - __main__ - INFO - Starting Intelligent Agent Q&A System...
+2026-02-03 17:17:02,176 - agent_system.tool_manager - INFO - Tool registered: calculator
+2026-02-03 17:17:02,176 - agent_system.tool_manager - INFO - Tool registered: knowledge_base_search
+2026-02-03 17:17:02,176 - __main__ - INFO - Processing 4 questions concurrently...
+2026-02-03 17:17:02,176 - agent_system.integration_module - INFO - Processing query: 系统中都有哪些人员？
+2026-02-03 17:17:02,176 - agent_system.integration_module - INFO - Processing query: 目前有哪些待办任务？
+2026-02-03 17:17:02,176 - agent_system.integration_module - INFO - Processing query: 计算 123 * 456 等于多少？
+2026-02-03 17:17:02,177 - agent_system.integration_module - INFO - Processing query: 查询关于 'Ontology' 的外部知识库信息。
+2026-02-03 17:17:02,177 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:17:02,177 - agent_system.query_module - INFO - Loading RDF graph for querying...
+2026-02-03 17:17:02,227 - agent_system.query_module - INFO - SPARQL query executed in 0.050s
+2026-02-03 17:17:02,229 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:17:02,229 - agent_system.generation_module - INFO - Generating answer for question: 系统中都有哪些人员？
+2026-02-03 17:17:02,229 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:17:02,231 - agent_system.query_module - INFO - SPARQL query executed in 0.002s
+2026-02-03 17:17:02,232 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:17:02,232 - agent_system.generation_module - INFO - Generating answer for question: 目前有哪些待办任务？
+2026-02-03 17:17:02,232 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:17:02,235 - agent_system.query_module - INFO - SPARQL query executed in 0.002s
+2026-02-03 17:17:02,236 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:17:02,236 - agent_system.generation_module - INFO - Generating answer for question: 计算 123 * 456 等于多少？
+2026-02-03 17:17:02,236 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:17:02,238 - agent_system.query_module - INFO - SPARQL query executed in 0.002s
+2026-02-03 17:17:02,239 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:17:02,239 - agent_system.generation_module - INFO - Generating answer for question: 查询关于 'Ontology' 的外部知识库信息。
+2026-02-03 17:20:26,777 - __main__ - INFO - Starting Intelligent Agent Q&A System...
+2026-02-03 17:20:26,927 - agent_system.tool_manager - INFO - Tool registered: calculator
+2026-02-03 17:20:26,927 - agent_system.tool_manager - INFO - Tool registered: knowledge_base_search
+2026-02-03 17:20:26,927 - __main__ - INFO - Processing 4 questions concurrently...
+2026-02-03 17:20:26,927 - agent_system.integration_module - INFO - Processing query: 系统中都有哪些人员？
+2026-02-03 17:20:26,928 - agent_system.integration_module - INFO - Processing query: 目前有哪些待办任务？
+2026-02-03 17:20:26,928 - agent_system.integration_module - INFO - Processing query: 计算 123 * 456 等于多少？
+2026-02-03 17:20:26,928 - agent_system.integration_module - INFO - Processing query: 查询关于 'Ontology' 的外部知识库信息。
+2026-02-03 17:20:26,929 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:20:26,929 - agent_system.query_module - INFO - Loading RDF graph for querying...
+2026-02-03 17:20:26,976 - agent_system.query_module - INFO - SPARQL query executed in 0.047s
+2026-02-03 17:20:26,978 - agent_system.query_module - INFO - SPARQL query executed in 0.002s
+2026-02-03 17:20:26,978 - agent_system.generation_module - INFO - Generating answer for question: 系统中都有哪些人员？
+2026-02-03 17:20:26,978 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:20:26,980 - agent_system.query_module - INFO - SPARQL query executed in 0.002s
+2026-02-03 17:20:26,981 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:20:26,981 - agent_system.generation_module - INFO - Generating answer for question: 目前有哪些待办任务？
+2026-02-03 17:20:26,981 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:20:26,983 - agent_system.query_module - INFO - SPARQL query executed in 0.002s
+2026-02-03 17:20:26,984 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:20:26,984 - agent_system.generation_module - INFO - Generating answer for question: 计算 123 * 456 等于多少？
+2026-02-03 17:20:26,984 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:20:26,986 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:20:26,987 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:20:26,987 - agent_system.generation_module - INFO - Generating answer for question: 查询关于 'Ontology' 的外部知识库信息。
+2026-02-03 17:23:53,519 - __main__ - INFO - Starting Intelligent Agent Q&A System...
+2026-02-03 17:23:53,673 - agent_system.tool_manager - INFO - Tool registered: calculator
+2026-02-03 17:23:53,673 - agent_system.tool_manager - INFO - Tool registered: knowledge_base_search
+2026-02-03 17:23:53,673 - __main__ - INFO - Processing 1 questions concurrently...
+2026-02-03 17:23:53,673 - agent_system.integration_module - INFO - Processing query: 杨雨融是谁
+2026-02-03 17:23:53,674 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:23:53,674 - agent_system.query_module - INFO - Loading RDF graph for querying...
+2026-02-03 17:23:53,723 - agent_system.query_module - INFO - SPARQL query executed in 0.049s
+2026-02-03 17:23:53,725 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:23:53,725 - agent_system.generation_module - INFO - Generating answer for question: 杨雨融是谁
+2026-02-03 17:26:03,749 - __main__ - INFO - Starting Intelligent Agent Q&A System...
+2026-02-03 17:26:03,889 - agent_system.tool_manager - INFO - Tool registered: calculator
+2026-02-03 17:26:03,890 - agent_system.tool_manager - INFO - Tool registered: knowledge_base_search
+2026-02-03 17:26:03,890 - __main__ - INFO - Processing 1 questions concurrently...
+2026-02-03 17:26:03,890 - agent_system.integration_module - INFO - Processing query: 杨雨融是谁
+2026-02-03 17:26:03,890 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:26:03,890 - agent_system.query_module - INFO - Loading RDF graph for querying...
+2026-02-03 17:26:03,933 - agent_system.query_module - INFO - SPARQL query executed in 0.043s
+2026-02-03 17:26:03,934 - agent_system.query_module - INFO - SPARQL query executed in 0.001s
+2026-02-03 17:26:03,934 - agent_system.generation_module - INFO - Generating answer for question: 杨雨融是谁
+2026-02-03 17:34:42,761 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:35:14,397 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
+2026-02-03 17:35:29,259 - agent_system.generation_module - ERROR - Error deciding tool call: 'Input to ChatPromptTemplate is missing variables {"\'参数名\'"}.  Expected: ["\'参数名\'", \'question\'] Received: [\'question\']\nNote: if you intended {\'参数名\'} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\'参数名\'}}\'.\nFor troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/INVALID_PROMPT_INPUT '
