@@ -20,7 +20,7 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-DEFAULT_GRAPH_PATH = "memory/ontology/graph.jsonl"
+DEFAULT_GRAPH_PATH = "memory/ontology/tool_graph.jsonl"
 DEFAULT_SCHEMA_PATH = "memory/ontology/schema.yaml"
 
 
