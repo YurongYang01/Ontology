@@ -26,7 +26,8 @@ class ExtractionResult(BaseModel):
 
 class LLMExtractor:
     def __init__(self, manager: OntologyManager, model_name="deepseek-chat"):
-        # Using DeepSeek via OpenAI compatible interface
+        if ChatOpenAI is None:
+            raise ImportError("Missing dependency: install 'langchain-openai'")
         self.llm = ChatOpenAI(
             model=model_name,
             openai_api_key=os.getenv("DEEPSEEK_API_KEY"),
