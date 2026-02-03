@@ -18,7 +18,7 @@ from streamlit_agraph import agraph, Node, Edge, Config
 
 # Initialize components
 if 'manager' not in st.session_state:
-    st.session_state.manager = OntologyManager(graph_path="memory/ontology/tool_graph.jsonl")
+    st.session_state.manager = OntologyManager(graph_path="memory/ontology/graph.jsonl")
 
 manager = st.session_state.manager
 importer = DataImporter(manager)

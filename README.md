@@ -18,7 +18,7 @@ Ontology/
 │   └── ontology/
 │       ├── graph.jsonl       # 存储实体和关系数据的数据库文件
 │       ├── schema.yaml       # 定义实体类型、属性和关系的 Schema
-│       └── tool_graph.jsonl  # (可选) 工具相关的图数据
+│   
 ├── ontology_tool/            # 核心逻辑包
 │   ├── core/
 │   │   ├── manager.py        # 核心管理器，处理 CRUD 操作
