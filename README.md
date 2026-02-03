@@ -1,125 +1,136 @@
-# Ontology Project
+# Intelligent Ontology Agent System
 
-这是一个基于 Python 的本体（Ontology）管理系统，用于构建和管理结构化的知识图谱。它允许用户定义实体（Entity）、属性（Properties）以及实体之间的关系（Relation），并将数据持久化存储为 JSONL 格式。
+这是一个结合了**本体建模 (Ontology Modeling)** 与 **智能代理 (Intelligent Agent)** 的综合系统。它不仅允许用户构建和管理结构化的知识图谱，还提供了一个支持多轮对话的智能助手，能够理解自然语言问题，查询图数据库，并结合外部工具提供准确的回答。
 
-## 核心功能
+## 🌟 核心功能
 
-*   **实体管理**：创建、更新、查询、删除各类实体（如 Person, Project, Task 等）。
-*   **关系管理**：建立实体之间的关联（如 `has_task`, `assigned_to` 等）。
-*   **持久化存储**：所有数据以 Append-only 的方式存储在 `memory/ontology/graph.jsonl` 中，支持历史追溯。
-*   **Schema 定义**：通过 `memory/ontology/schema.yaml` 定义灵活的实体类型和约束。
-*   **CLI 命令行工具**：提供便捷的命令行接口进行所有操作。
+### 1. 知识图谱构建与管理 (Ontology Tool)
+*   **可视化建模**: 基于 Streamlit 的 Web 界面，支持实体和关系的增删改查。
+*   **AI 辅助提取**: 利用 DeepSeek LLM 从非结构化文本中自动提取实体和关系。
+*   **图谱可视化**: 交互式展示知识图谱结构。
+*   **多格式支持**: 支持导出 RDF (Turtle) 和 JSONL 格式。
 
-## 项目结构
+### 2. 智能问答代理 (Agent System)
+*   **多轮交互式问答**: 支持上下文记忆的自然语言对话。
+*   **混合查询引擎**: 结合 SPARQL 图查询与 LLM 语义理解。
+*   **智能工具调用**: 动态调用外部工具（如计算器）增强回答能力。
+*   **高并发架构**: 基于 `asyncio` 的异步处理机制，支持快速响应。
 
-```
+---
+
+## 📂 项目结构
+
+```text
 Ontology/
+├── agent_system/               # [NEW] 智能问答代理核心模块
+│   ├── generation_module.py    # 答案生成 (LLM集成)
+│   ├── integration_module.py   # 代理编排与对话状态管理
+│   ├── query_module.py         # SPARQL 查询引擎
+│   ├── parsing_module.py       # 结果解析与自然语言转换
+│   ├── tool_manager.py         # 工具调用管理
+│   └── main.py                 # 交互式 CLI 入口
+│
+├── ontology_tool/              # 本体管理核心工具
+│   ├── core/                   # 核心 CRUD 与导入导出逻辑
+│   └── utils/
+│       └── app.py              # Streamlit 可视化 Web 应用
+│
 ├── memory/
 │   └── ontology/
-│       ├── graph.jsonl       # 存储实体和关系数据的数据库文件
-│       ├── schema.yaml       # 定义实体类型、属性和关系的 Schema
-│   
-├── ontology_tool/            # 核心逻辑包
-│   ├── core/
-│   │   ├── manager.py        # 核心管理器，处理 CRUD 操作
-│   │   ├── exporter.py       # 数据导出逻辑
-│   │   ├── extractor.py      # 数据提取逻辑
-│   │   └── importer.py       # 数据导入逻辑
-    │   └── utils/
-    │       └── app.py            # Streamlit 可视化 Web 应用
-    ├── scripts/
-    │   └── ontology.py           # 命令行入口脚本
-└── README.md                 # 项目文档
+│       ├── graph.jsonl         # 核心数据库 (JSONL 格式)
+│       └── schema.yaml         # 数据模型定义
+│
+├── tests/                      # 单元与集成测试
+├── run.py                      # 系统统一启动入口
+└── README.md                   # 项目文档
 ```
 
-## 快速开始
+---
+
+## 🚀 快速开始
 
 ### 1. 环境准备
 
-确保已安装 Python 3。
+确保安装 Python 3.10+。
 
-建议安装以下依赖以支持可视化和 AI 功能：
+安装依赖：
 ```bash
-pip install streamlit streamlit-agraph python-dotenv langchain-core langchain-openai pydantic pyyaml
+pip install streamlit streamlit-agraph python-dotenv langchain-openai langchain-core rdflib pydantic pyyaml
 ```
 
-### 2. 使用可视化界面 (Web UI)
-
-本项目提供了一个基于 Streamlit 的图形化界面，支持手动录入、AI 提取和图谱可视化。
-
-```bash
-streamlit run ontology_tool/utils/app.py
+配置环境变量：
+创建 `.env` 文件并填入你的 DeepSeek API Key（兼容 OpenAI 格式）：
+```ini
+DEEPSEEK_API_KEY=sk-xxxxxx
 ```
 
-*   **Build**: 手动创建实体/关系，或通过 DeepSeek AI 从文本中提取。
-*   **Visualize**: 交互式查看知识图谱。
-*   **Export**: 导出 RDF 或 JSONL 数据。
+### 2. 第一步：构建知识库 (Web UI)
 
-注意：Web 应用默认使用独立的数据库文件 `memory/ontology/graph.jsonl`。
-
-### 3. 使用命令行工具
-
-主要的操作入口是 `scripts/ontology.py`。
-
-#### 创建实体
+使用可视化界面录入或导入数据。
 
 ```bash
-# 创建一个 Person 实体
-python scripts/ontology.py create --type Person --props '{"name":"Alice", "email":"alice@example.com"}'
-
-# 创建一个 Task 实体
-python scripts/ontology.py create --type Task --props '{"title":"Complete README", "status":"open"}'
+streamlit run ontology_tool/app.py
 ```
 
-#### 查询实体
+*   打开浏览器访问显示的 URL (通常是 `http://localhost:8501`)。
+*   在 **"Build"** 标签页中手动添加实体（如 `Person`, `Task`），或粘贴文本让 AI 自动提取。
+*   在 **"Visualize"** 标签页查看数据结构。
+
+### 3. 第二步：与 Agent 对话 (CLI)
+
+启动智能问答助手，查询刚才构建的知识库。
 
 ```bash
-# 列出所有 Person 类型的实体
-python scripts/ontology.py list --type Person
-
-# 根据 ID 获取特定实体 (假设 ID 为 p_1234abcd)
-python scripts/ontology.py get --id p_1234abcd
-
-# 根据属性查询实体
-python scripts/ontology.py query --type Task --where '{"status":"open"}'
+python3 run.py
 ```
 
-#### 建立关系
+**示例对话：**
+```text
+[系统]: 欢迎使用智能本体 Agent 问答系统
+[用户]: 这里有哪些任务？
+[Agent]: 目前系统中有以下任务：
+1. "Complete README" (状态: open)
+2. "Fix Bugs" (状态: in_progress)
+
+[用户]: 谁负责 "Fix Bugs"？
+[Agent]: 根据关系数据，"Alice" 被指派负责 "Fix Bugs" 任务。
+```
+
+---
+
+## 📖 详细使用说明
+
+### 交互式命令行 (CLI)
+
+Agent 系统支持以下指令：
+*   **普通对话**: 直接输入自然语言问题。
+*   **`clear`**: 清除当前的对话历史（重置上下文）。
+*   **`exit` / `quit`**: 退出系统。
+
+### 数据模型 (Schema)
+
+项目默认定义了通用的项目管理本体 (`memory/ontology/schema.yaml`)，包含：
+*   **Person**: 人员
+*   **Task**: 任务
+*   **Project**: 项目
+*   **Organization**: 组织
+*   **Relations**: `has_task`, `assigned_to`, `part_of` 等。
+
+你可以修改 schema 文件来适配不同的领域。
+
+---
+
+## 🛠️ 开发与测试
+
+运行所有测试用例以确保系统稳定性：
 
 ```bash
-# 将任务关联到人员 (假设 Project ID 为 proj_001, Task ID 为 task_001)
-python scripts/ontology.py relate --from proj_001 --rel has_task --to task_001
+python3 -m unittest discover tests
 ```
 
-#### 查询关系
+### 核心技术栈
 
-```bash
-# 查看某个实体相关的关系
-python scripts/ontology.py related --id proj_001 --rel has_task
-```
-
-#### 删除实体
-
-```bash
-python scripts/ontology.py delete --id p_1234abcd
-```
-
-## 数据模型 (Schema)
-
-项目使用 `memory/ontology/schema.yaml` 定义数据模型。核心实体类型包括：
-
-*   **Person**: 人员信息 (name, email, etc.)
-*   **Organization**: 组织机构
-*   **Project**: 项目 (name, status, owner, etc.)
-*   **Task**: 任务 (title, status, priority, etc.)
-*   **Goal**: 目标
-*   **Event**: 日程事件
-*   **Location**: 地点
-*   **Document / Message / Note**: 信息类实体
-*   **Account / Device**: 资源类实体
-
-更多详细定义请参考 `memory/ontology/schema.yaml` 文件。
-
-## 数据存储
-
-数据默认存储在 `memory/ontology/graph.jsonl`。每一行是一个 JSON 对象，记录了一次操作（create, update, delete, relate 等），系统通过重放这些操作来构建当前的图谱状态。
+*   **LLM Framework**: LangChain
+*   **Ontology/Graph**: RDFLib, SPARQL
+*   **Web UI**: Streamlit, Streamlit-Agraph
+*   **Storage**: JSON Lines (Append-only log)
